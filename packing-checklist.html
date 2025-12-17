@@ -15,7 +15,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             min-height: 100vh;
-            padding: 20px;
+            padding: 10px;
             color: #eee;
         }
 
@@ -26,37 +26,39 @@
 
         header {
             text-align: center;
-            margin-bottom: 30px;
-            padding: 20px;
+            margin-bottom: 20px;
+            padding: 15px;
             background: rgba(255,255,255,0.1);
             border-radius: 15px;
             backdrop-filter: blur(10px);
         }
 
         h1 {
-            font-size: 2em;
-            margin-bottom: 10px;
+            font-size: 1.6em;
+            margin-bottom: 8px;
             background: linear-gradient(90deg, #00d4ff, #ff00d4);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
+        .trip-dates {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+
         .trip-info {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 15px;
-            margin-top: 15px;
+            gap: 8px;
+            margin-top: 12px;
         }
 
         .destination {
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.75em;
         }
 
         .dest-seoul { background: #3498db; }
@@ -65,21 +67,153 @@
         .dest-siemreap { background: #f39c12; }
         .dest-hanoi { background: #9b59b6; }
 
-        .progress-container {
+        /* Sync Section */
+        .sync-section {
             background: rgba(255,255,255,0.1);
             border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 20px;
+            padding: 15px;
+            margin-bottom: 15px;
             text-align: center;
         }
 
+        .sync-status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .sync-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #e74c3c;
+        }
+
+        .sync-dot.connected {
+            background: #2ecc71;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .sync-input-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .sync-input {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            font-size: 0.9em;
+            width: 180px;
+            text-align: center;
+        }
+
+        .sync-input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* Person Tabs */
+        .person-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .person-tab {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .person-tab.mehmet {
+            background: rgba(52, 152, 219, 0.3);
+            color: #3498db;
+            border: 2px solid #3498db;
+        }
+
+        .person-tab.mehmet.active {
+            background: #3498db;
+            color: white;
+        }
+
+        .person-tab.maria {
+            background: rgba(233, 30, 99, 0.3);
+            color: #e91e63;
+            border: 2px solid #e91e63;
+        }
+
+        .person-tab.maria.active {
+            background: #e91e63;
+            color: white;
+        }
+
+        .person-tab.shared {
+            background: rgba(156, 39, 176, 0.3);
+            color: #9c27b0;
+            border: 2px solid #9c27b0;
+        }
+
+        .person-tab.shared.active {
+            background: #9c27b0;
+            color: white;
+        }
+
+        .tab-count {
+            background: rgba(0,0,0,0.3);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.8em;
+        }
+
+        .person-tab.active .tab-count {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* Progress */
+        .progress-container {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
         .progress-bar {
-            width: 100%;
-            height: 30px;
+            flex: 1;
+            min-width: 200px;
+            height: 25px;
             background: rgba(0,0,0,0.3);
             border-radius: 15px;
             overflow: hidden;
-            margin: 10px 0;
         }
 
         .progress-fill {
@@ -91,67 +225,46 @@
             align-items: center;
             justify-content: center;
             font-weight: bold;
+            font-size: 0.85em;
             color: #1a1a2e;
         }
 
-        .stats {
+        .progress-stats {
             display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 10px;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: #00d4ff;
+            gap: 20px;
+            font-size: 0.9em;
         }
 
         .controls {
             display: flex;
             justify-content: center;
             gap: 10px;
-            margin-top: 15px;
+            margin-top: 10px;
             flex-wrap: wrap;
         }
 
         .btn {
-            padding: 10px 20px;
+            padding: 8px 16px;
             border: none;
-            border-radius: 25px;
+            border-radius: 20px;
             cursor: pointer;
-            font-size: 0.9em;
+            font-size: 0.85em;
             transition: all 0.3s ease;
-        }
-
-        .btn-reset {
-            background: #e74c3c;
-            color: white;
-        }
-
-        .btn-expand {
-            background: #3498db;
-            color: white;
-        }
-
-        .btn-collapse {
-            background: #9b59b6;
-            color: white;
         }
 
         .btn:hover {
             transform: scale(1.05);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
         }
 
+        .btn-reset { background: #e74c3c; color: white; }
+        .btn-expand { background: #3498db; color: white; }
+        .btn-collapse { background: #9b59b6; color: white; }
+
+        /* Categories Grid */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 15px;
         }
 
         .category {
@@ -159,16 +272,10 @@
             border-radius: 15px;
             overflow: hidden;
             backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-
-        .category:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
         .category-header {
-            padding: 15px 20px;
+            padding: 12px 15px;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
@@ -179,25 +286,20 @@
         .category-title {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 1.1em;
+            gap: 8px;
+            font-size: 1em;
             font-weight: bold;
-        }
-
-        .category-icon {
-            font-size: 1.3em;
         }
 
         .category-count {
             background: rgba(0,0,0,0.3);
-            padding: 5px 12px;
-            border-radius: 15px;
-            font-size: 0.85em;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
         }
 
         .category-items {
-            padding: 0 20px 20px;
-            display: block;
+            padding: 0 15px 15px;
         }
 
         .category-items.collapsed {
@@ -215,7 +317,7 @@
         .item {
             display: flex;
             align-items: flex-start;
-            gap: 12px;
+            gap: 10px;
             padding: 10px;
             margin: 5px 0;
             background: rgba(0,0,0,0.2);
@@ -228,7 +330,7 @@
         }
 
         .item.checked {
-            opacity: 0.6;
+            opacity: 0.5;
         }
 
         .item.checked .item-text {
@@ -236,11 +338,11 @@
         }
 
         .checkbox {
-            width: 22px;
-            height: 22px;
-            min-width: 22px;
+            width: 24px;
+            height: 24px;
+            min-width: 24px;
             border: 2px solid #00d4ff;
-            border-radius: 5px;
+            border-radius: 6px;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -257,6 +359,7 @@
             content: '✓';
             color: #1a1a2e;
             font-weight: bold;
+            font-size: 14px;
         }
 
         .item-content {
@@ -265,13 +368,13 @@
 
         .item-text {
             font-size: 0.95em;
-            line-height: 1.4;
+            line-height: 1.3;
         }
 
         .item-note {
             font-size: 0.8em;
             color: #aaa;
-            margin-top: 3px;
+            margin-top: 2px;
         }
 
         .item-tags {
@@ -285,83 +388,46 @@
             font-size: 0.7em;
             padding: 2px 8px;
             border-radius: 10px;
-            background: rgba(255,255,255,0.2);
         }
 
+        .tag-carry-on { background: #27ae60; }
+        .tag-luggage { background: #e67e22; }
+        .tag-essential { background: #e91e63; }
         .tag-cold { background: #3498db; }
         .tag-hot { background: #e74c3c; }
-        .tag-carry-on { background: #2ecc71; }
-        .tag-luggage { background: #f39c12; }
-        .tag-essential { background: #e91e63; }
-
-        .luggage-indicator {
-            font-size: 0.8em;
-            padding: 2px 8px;
-            border-radius: 10px;
-            margin-left: auto;
-        }
-
-        .carry-on { background: #27ae60; }
-        .main-luggage { background: #e67e22; }
 
         .shopping-tip {
             background: linear-gradient(135deg, #f39c12, #e74c3c);
-            padding: 20px;
+            padding: 15px;
             border-radius: 15px;
             margin-top: 20px;
             text-align: center;
         }
 
-        .shopping-tip h3 {
-            margin-bottom: 10px;
-        }
-
-        .weather-summary {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .weather-card {
-            background: rgba(255,255,255,0.1);
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        .weather-card h4 {
-            margin-bottom: 5px;
-        }
-
-        .weather-temp {
-            font-size: 1.5em;
-            font-weight: bold;
-        }
-
-        .cold { color: #3498db; }
-        .warm { color: #f39c12; }
-        .hot { color: #e74c3c; }
-
         footer {
             text-align: center;
-            margin-top: 30px;
-            padding: 20px;
+            margin-top: 20px;
+            padding: 15px;
             opacity: 0.7;
+            font-size: 0.85em;
         }
 
-        @media (max-width: 768px) {
+        .last-sync {
+            font-size: 0.8em;
+            opacity: 0.7;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 600px) {
             .grid {
                 grid-template-columns: 1fr;
             }
-
             h1 {
-                font-size: 1.5em;
+                font-size: 1.3em;
             }
-
-            .trip-info {
-                flex-direction: column;
-                align-items: center;
+            .person-tab {
+                padding: 10px 18px;
+                font-size: 0.9em;
             }
         }
     </style>
@@ -369,267 +435,467 @@
 <body>
     <div class="container">
         <header>
-            <h1>🧳 İzmir → Asia Trip Packing Checklist</h1>
-            <p>December 19, 2025 - January 18, 2026</p>
+            <h1>🧳 İzmir → Asia Trip Packing</h1>
+            <p class="trip-dates">December 19, 2025 - January 18, 2026</p>
             <div class="trip-info">
-                <span class="destination dest-seoul">❄️ Seoul (Dec 20-27) ~0°C</span>
-                <span class="destination dest-hcmc">☀️ HCMC (Dec 27-Jan 3) ~30°C</span>
-                <span class="destination dest-danang">🌤️ Da Nang (Jan 3-9) ~23°C</span>
-                <span class="destination dest-siemreap">🌴 Siem Reap (Jan 9-12) ~28°C</span>
-                <span class="destination dest-hanoi">🌧️ Hanoi (Jan 12-17) ~17°C</span>
+                <span class="destination dest-seoul">❄️ Seoul 0°C</span>
+                <span class="destination dest-hcmc">☀️ HCMC 30°C</span>
+                <span class="destination dest-danang">🌤️ Da Nang 23°C</span>
+                <span class="destination dest-siemreap">🌴 Siem Reap 28°C</span>
+                <span class="destination dest-hanoi">🌧️ Hanoi 17°C</span>
             </div>
         </header>
 
-        <div class="progress-container">
-            <h3>Packing Progress</h3>
-            <div class="progress-bar">
-                <div class="progress-fill" id="progressFill">0%</div>
+        <!-- Sync Section -->
+        <div class="sync-section">
+            <div class="sync-status">
+                <div class="sync-dot" id="syncDot"></div>
+                <span id="syncStatus">Local mode - Enter room code to sync</span>
             </div>
-            <div class="stats">
-                <div class="stat">
-                    <div class="stat-number" id="checkedCount">0</div>
-                    <div>Packed</div>
+            <div class="sync-input-group">
+                <input type="text" class="sync-input" id="roomCode" placeholder="Room code (e.g., izmir2025)" />
+                <button class="btn btn-expand" onclick="connectRoom()">🔗 Connect</button>
+                <button class="btn btn-collapse" onclick="generateRoom()">✨ New Room</button>
+            </div>
+            <div class="last-sync" id="lastSync"></div>
+        </div>
+
+        <!-- Person Tabs -->
+        <div class="person-tabs">
+            <button class="person-tab mehmet active" onclick="switchTab('mehmet')">
+                👨 Mehmet <span class="tab-count" id="mehmetCount">0/0</span>
+            </button>
+            <button class="person-tab maria" onclick="switchTab('maria')">
+                👩 Maria <span class="tab-count" id="mariaCount">0/0</span>
+            </button>
+            <button class="person-tab shared" onclick="switchTab('shared')">
+                👫 Shared <span class="tab-count" id="sharedCount">0/0</span>
+            </button>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-header">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill">0%</div>
                 </div>
-                <div class="stat">
-                    <div class="stat-number" id="totalCount">0</div>
-                    <div>Total Items</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number" id="remainingCount">0</div>
-                    <div>Remaining</div>
+                <div class="progress-stats">
+                    <span><strong id="checkedCount">0</strong> packed</span>
+                    <span><strong id="remainingCount">0</strong> left</span>
                 </div>
             </div>
             <div class="controls">
-                <button class="btn btn-expand" onclick="expandAll()">📂 Expand All</button>
-                <button class="btn btn-collapse" onclick="collapseAll()">📁 Collapse All</button>
-                <button class="btn btn-reset" onclick="resetAll()">🔄 Reset All</button>
+                <button class="btn btn-expand" onclick="expandAll()">📂 Expand</button>
+                <button class="btn btn-collapse" onclick="collapseAll()">📁 Collapse</button>
+                <button class="btn btn-reset" onclick="resetCurrent()">🔄 Reset Tab</button>
             </div>
         </div>
 
-        <div class="grid" id="checklistGrid">
-            <!-- Categories will be inserted here by JavaScript -->
-        </div>
+        <div class="grid" id="checklistGrid"></div>
 
         <div class="shopping-tip">
-            <h3>🛍️ Shopping Tip</h3>
-            <p><strong>Leave 30-40% of your luggage space empty!</strong></p>
-            <p>Great shopping destinations: Myeongdong (Seoul), Ben Thanh Market (HCMC), Hoi An (near Da Nang), Night Markets (Siem Reap), Old Quarter (Hanoi)</p>
+            <h3>🛍️ Shopping Reminder</h3>
+            <p><strong>Leave 30-40% luggage space empty!</strong></p>
+            <p style="font-size:0.9em; margin-top:5px;">Seoul • HCMC • Hoi An • Siem Reap • Hanoi</p>
         </div>
 
         <footer>
-            <p>Have a wonderful trip! Safe travels! ✈️</p>
-            <p><small>Your progress is automatically saved in your browser.</small></p>
+            <p>Safe travels! ✈️ Your progress syncs automatically.</p>
         </footer>
     </div>
 
     <script>
-        const categories = [
-            {
-                id: 'documents',
-                title: 'Documents & Money',
-                icon: '📄',
-                color: '#e74c3c',
-                items: [
-                    { text: 'Passports (both)', note: 'Check validity - must be valid 6+ months', tags: ['essential'], luggage: 'carry-on' },
-                    { text: 'Flight tickets/confirmations', note: 'Print or save offline copies', tags: ['essential'], luggage: 'carry-on' },
-                    { text: 'Hotel reservations', note: 'All 5 destinations', tags: ['essential'], luggage: 'carry-on' },
-                    { text: 'Travel insurance documents', note: 'With emergency contact numbers', tags: ['essential'], luggage: 'carry-on' },
-                    { text: 'Credit/Debit cards', note: 'Notify bank of travel dates', tags: ['essential'], luggage: 'carry-on' },
-                    { text: 'Cash - USD', note: '$200-300 for emergencies, widely accepted', tags: ['essential'], luggage: 'carry-on' },
-                    { text: 'Cash - Korean Won', note: 'Or get at Incheon Airport ATM', luggage: 'carry-on' },
-                    { text: 'Passport photos (4 extra)', note: 'For any visa-on-arrival needs', luggage: 'carry-on' },
-                    { text: 'Copies of all documents', note: 'Keep separate from originals', tags: ['essential'], luggage: 'carry-on' },
-                    { text: 'International driving license', note: 'If planning to rent scooter', luggage: 'carry-on' }
-                ]
-            },
-            {
-                id: 'electronics',
-                title: 'Electronics',
-                icon: '📱',
-                color: '#3498db',
-                items: [
-                    { text: 'Phone + charger', tags: ['essential'], luggage: 'carry-on' },
-                    { text: 'Power bank (under 100Wh)', note: 'Must be in carry-on for flights', tags: ['essential'], luggage: 'carry-on' },
-                    { text: 'Universal travel adapter', note: 'Korea Type C/F, Vietnam Type A/C/G, Cambodia Type A/C/G', tags: ['essential'], luggage: 'carry-on' },
-                    { text: 'Camera + charger + SD cards', luggage: 'carry-on' },
-                    { text: 'Earphones/headphones', note: 'For long flights', luggage: 'carry-on' },
-                    { text: 'E-reader/tablet', note: 'For entertainment', luggage: 'carry-on' },
-                    { text: 'Laptop + charger', note: 'If needed', luggage: 'carry-on' },
-                    { text: 'USB cables (multiple)', luggage: 'carry-on' }
-                ]
-            },
-            {
-                id: 'cold-weather',
-                title: 'Cold Weather Clothes (Seoul & Hanoi)',
-                icon: '🧥',
-                color: '#2980b9',
-                items: [
-                    { text: 'Winter jacket/down coat', note: 'Essential for Seoul (-5°C possible)', tags: ['cold'], luggage: 'main' },
-                    { text: 'Warm sweaters (2-3)', tags: ['cold'], luggage: 'main' },
-                    { text: 'Long-sleeve shirts (3-4)', tags: ['cold'], luggage: 'main' },
-                    { text: 'Thermal underwear set', note: 'For Seoul', tags: ['cold'], luggage: 'main' },
-                    { text: 'Jeans/warm pants (2-3)', tags: ['cold'], luggage: 'main' },
-                    { text: 'Warm scarf', tags: ['cold'], luggage: 'main' },
-                    { text: 'Winter hat/beanie', tags: ['cold'], luggage: 'main' },
-                    { text: 'Gloves', tags: ['cold'], luggage: 'main' },
-                    { text: 'Warm socks (4-5 pairs)', tags: ['cold'], luggage: 'main' },
-                    { text: 'Comfortable walking boots', note: 'Waterproof preferred', tags: ['cold'], luggage: 'main' }
-                ]
-            },
-            {
-                id: 'warm-weather',
-                title: 'Warm Weather Clothes (HCMC, Da Nang, Siem Reap)',
-                icon: '👕',
-                color: '#e67e22',
-                items: [
-                    { text: 'T-shirts (4-5)', note: 'Light, breathable fabrics', tags: ['hot'], luggage: 'main' },
-                    { text: 'Shorts (2-3)', tags: ['hot'], luggage: 'main' },
-                    { text: 'Light pants/chinos (2)', note: 'For temples - need covered legs', tags: ['hot'], luggage: 'main' },
-                    { text: 'Light long-sleeve shirts (2)', note: 'Sun protection + temple visits', tags: ['hot'], luggage: 'main' },
-                    { text: 'Swimwear', note: 'For Da Nang beach & hotel pools', tags: ['hot'], luggage: 'main' },
-                    { text: 'Sandals/flip-flops', tags: ['hot'], luggage: 'main' },
-                    { text: 'Light sneakers', note: 'For Angkor Wat temple complex', tags: ['hot'], luggage: 'main' },
-                    { text: 'Sun hat/cap', tags: ['hot'], luggage: 'main' },
-                    { text: 'Sunglasses', tags: ['hot'], luggage: 'carry-on' },
-                    { text: 'Light cardigan/hoodie', note: 'For AC in malls & restaurants', tags: ['hot'], luggage: 'main' }
-                ]
-            },
-            {
-                id: 'rain-gear',
-                title: 'Rain & Layering',
-                icon: '☔',
-                color: '#1abc9c',
-                items: [
-                    { text: 'Compact umbrella', note: 'Da Nang & Hanoi can be rainy', luggage: 'carry-on' },
-                    { text: 'Light rain jacket/windbreaker', note: 'Packable type', luggage: 'main' },
-                    { text: 'Waterproof bag/pouch', note: 'For electronics during rain', luggage: 'carry-on' }
-                ]
-            },
-            {
-                id: 'toiletries',
-                title: 'Toiletries',
-                icon: '🧴',
-                color: '#9b59b6',
-                items: [
-                    { text: 'Toothbrush & toothpaste', luggage: 'main' },
-                    { text: 'Shampoo & conditioner (travel size)', note: 'Under 100ml for carry-on', luggage: 'main' },
-                    { text: 'Body wash/soap', luggage: 'main' },
-                    { text: 'Deodorant', luggage: 'main' },
-                    { text: 'Sunscreen SPF 50+', note: 'Essential for SE Asia', tags: ['essential'], luggage: 'main' },
-                    { text: 'Moisturizer', note: 'Seoul is very dry in winter', luggage: 'main' },
-                    { text: 'Lip balm with SPF', luggage: 'carry-on' },
-                    { text: 'Razor & shaving cream', luggage: 'main' },
-                    { text: 'Hairbrush/comb', luggage: 'main' },
-                    { text: 'Insect repellent', note: 'For Siem Reap & Hanoi', tags: ['essential'], luggage: 'main' },
-                    { text: 'Hand sanitizer', luggage: 'carry-on' },
-                    { text: 'Wet wipes', luggage: 'carry-on' },
-                    { text: 'Tissues/toilet paper pack', note: 'Not always available in SE Asia', luggage: 'carry-on' },
-                    { text: 'Nail clippers', luggage: 'main' },
-                    { text: 'Contact lenses + solution', note: 'If applicable', luggage: 'carry-on' }
-                ]
-            },
-            {
-                id: 'health',
-                title: 'Health & Medicine',
-                icon: '💊',
-                color: '#e91e63',
-                items: [
-                    { text: 'Personal medications', note: 'Bring prescription copies', tags: ['essential'], luggage: 'carry-on' },
-                    { text: 'Pain relievers (ibuprofen/paracetamol)', luggage: 'carry-on' },
-                    { text: 'Anti-diarrhea medicine', note: 'Important for SE Asia', tags: ['essential'], luggage: 'carry-on' },
-                    { text: 'Stomach medicine/antacids', note: 'For spicy food', luggage: 'carry-on' },
-                    { text: 'Motion sickness pills', note: 'For boats/buses', luggage: 'carry-on' },
-                    { text: 'Antihistamines', note: 'For allergies', luggage: 'carry-on' },
-                    { text: 'Cold/flu medicine', luggage: 'carry-on' },
-                    { text: 'Band-aids & antiseptic', luggage: 'carry-on' },
-                    { text: 'Rehydration salts', note: 'For hot weather/illness', luggage: 'carry-on' },
-                    { text: 'Eye drops', note: 'Flights are very drying', luggage: 'carry-on' }
-                ]
-            },
-            {
-                id: 'travel-comfort',
-                title: 'Travel Comfort',
-                icon: '✈️',
-                color: '#00bcd4',
-                items: [
-                    { text: 'Neck pillow', note: 'Long flight to Seoul (10+ hours)', luggage: 'carry-on' },
-                    { text: 'Eye mask', luggage: 'carry-on' },
-                    { text: 'Earplugs', luggage: 'carry-on' },
-                    { text: 'Compression socks', note: 'For long flights', luggage: 'carry-on' },
-                    { text: 'Reusable water bottle', note: 'Empty for security, fill after', luggage: 'carry-on' },
-                    { text: 'Snacks for flight', luggage: 'carry-on' },
-                    { text: 'Book/magazine', luggage: 'carry-on' },
-                    { text: 'Pen', note: 'For immigration forms', tags: ['essential'], luggage: 'carry-on' }
-                ]
-            },
-            {
-                id: 'bags',
-                title: 'Bags & Organization',
-                icon: '🎒',
-                color: '#607d8b',
-                items: [
-                    { text: 'Carry-on bag/backpack', tags: ['essential'], luggage: 'carry-on' },
-                    { text: 'Main luggage', note: 'Leave 30-40% empty for shopping!', tags: ['essential'], luggage: 'main' },
-                    { text: 'Day backpack (packable)', note: 'For daily excursions', luggage: 'main' },
-                    { text: 'Packing cubes', note: 'Great for organization', luggage: 'main' },
-                    { text: 'Laundry bag', note: 'For dirty clothes', luggage: 'main' },
-                    { text: 'Ziplock bags (various sizes)', note: 'For liquids & wet items', luggage: 'main' },
-                    { text: 'TSA-approved locks', note: 'For main luggage', luggage: 'main' },
-                    { text: 'Luggage tags', note: 'With contact info', luggage: 'main' }
-                ]
-            },
-            {
-                id: 'misc',
-                title: 'Miscellaneous',
-                icon: '📦',
-                color: '#795548',
-                items: [
-                    { text: 'Small gifts from Turkey', note: 'For anyone you might meet', luggage: 'main' },
-                    { text: 'Collapsible shopping bag', note: 'For market shopping', luggage: 'carry-on' },
-                    { text: 'Small flashlight', note: 'For temples at Angkor', luggage: 'carry-on' },
-                    { text: 'Sewing kit', note: 'Mini emergency repairs', luggage: 'main' },
-                    { text: 'Clothesline & clips', note: 'For quick laundry', luggage: 'main' }
-                ]
-            },
-            {
-                id: 'temple',
-                title: 'Temple Visit Essentials',
-                icon: '🛕',
-                color: '#ff5722',
-                items: [
-                    { text: 'Clothes covering shoulders', note: 'Required at temples', tags: ['essential'], luggage: 'main' },
-                    { text: 'Clothes covering knees', note: 'Required at temples', tags: ['essential'], luggage: 'main' },
-                    { text: 'Slip-on shoes', note: 'Easy to remove at temples', luggage: 'main' },
-                    { text: 'Light scarf/sarong', note: 'Can cover up if needed', luggage: 'main' }
-                ]
+        // Data structure for all items
+        const allCategories = {
+            mehmet: [
+                {
+                    id: 'mehmet-clothes-cold',
+                    title: 'Cold Weather Clothes',
+                    icon: '🧥',
+                    color: '#2980b9',
+                    items: [
+                        { text: 'Winter jacket/down coat', note: 'For Seoul & Hanoi', tags: ['cold', 'luggage'] },
+                        { text: 'Warm sweaters (2-3)', tags: ['cold', 'luggage'] },
+                        { text: 'Long-sleeve shirts (3-4)', tags: ['luggage'] },
+                        { text: 'Thermal underwear', note: 'For Seoul', tags: ['cold', 'luggage'] },
+                        { text: 'Jeans/warm pants (2-3)', tags: ['luggage'] },
+                        { text: 'Warm scarf', tags: ['cold', 'luggage'] },
+                        { text: 'Winter beanie', tags: ['cold', 'luggage'] },
+                        { text: 'Gloves', tags: ['cold', 'luggage'] },
+                        { text: 'Warm socks (5 pairs)', tags: ['luggage'] },
+                        { text: 'Walking boots', note: 'Waterproof', tags: ['luggage'] }
+                    ]
+                },
+                {
+                    id: 'mehmet-clothes-warm',
+                    title: 'Warm Weather Clothes',
+                    icon: '👕',
+                    color: '#e67e22',
+                    items: [
+                        { text: 'T-shirts (4-5)', tags: ['hot', 'luggage'] },
+                        { text: 'Shorts (2-3)', tags: ['hot', 'luggage'] },
+                        { text: 'Light pants (2)', note: 'For temples', tags: ['luggage'] },
+                        { text: 'Swimwear', note: 'Da Nang beach', tags: ['hot', 'luggage'] },
+                        { text: 'Sandals/flip-flops', tags: ['luggage'] },
+                        { text: 'Light sneakers', tags: ['luggage'] },
+                        { text: 'Cap/sun hat', tags: ['hot', 'carry-on'] },
+                        { text: 'Sunglasses', tags: ['carry-on'] }
+                    ]
+                },
+                {
+                    id: 'mehmet-toiletries',
+                    title: 'Toiletries',
+                    icon: '🧴',
+                    color: '#9b59b6',
+                    items: [
+                        { text: 'Toothbrush & toothpaste', tags: ['luggage'] },
+                        { text: 'Deodorant', tags: ['luggage'] },
+                        { text: 'Shampoo (travel size)', tags: ['luggage'] },
+                        { text: 'Body wash', tags: ['luggage'] },
+                        { text: 'Razor & shaving cream', tags: ['luggage'] },
+                        { text: 'Moisturizer', note: 'Seoul is dry', tags: ['luggage'] },
+                        { text: 'Lip balm', tags: ['carry-on'] },
+                        { text: 'Hairbrush/comb', tags: ['luggage'] },
+                        { text: 'Nail clippers', tags: ['luggage'] }
+                    ]
+                },
+                {
+                    id: 'mehmet-health',
+                    title: 'Health & Medicine',
+                    icon: '💊',
+                    color: '#e91e63',
+                    items: [
+                        { text: 'Personal medications', note: 'With prescriptions', tags: ['essential', 'carry-on'] },
+                        { text: 'Pain relievers', tags: ['carry-on'] },
+                        { text: 'Stomach medicine', tags: ['carry-on'] },
+                        { text: 'Contact lenses + solution', note: 'If applicable', tags: ['carry-on'] }
+                    ]
+                }
+            ],
+            maria: [
+                {
+                    id: 'maria-clothes-cold',
+                    title: 'Cold Weather Clothes',
+                    icon: '🧥',
+                    color: '#2980b9',
+                    items: [
+                        { text: 'Winter coat', note: 'For Seoul & Hanoi', tags: ['cold', 'luggage'] },
+                        { text: 'Warm sweaters (2-3)', tags: ['cold', 'luggage'] },
+                        { text: 'Long-sleeve tops (3-4)', tags: ['luggage'] },
+                        { text: 'Thermal underwear', note: 'For Seoul', tags: ['cold', 'luggage'] },
+                        { text: 'Warm pants/jeans (2-3)', tags: ['luggage'] },
+                        { text: 'Warm scarf', tags: ['cold', 'luggage'] },
+                        { text: 'Winter hat', tags: ['cold', 'luggage'] },
+                        { text: 'Gloves', tags: ['cold', 'luggage'] },
+                        { text: 'Warm socks (5 pairs)', tags: ['luggage'] },
+                        { text: 'Warm boots', note: 'Comfortable for walking', tags: ['luggage'] }
+                    ]
+                },
+                {
+                    id: 'maria-clothes-warm',
+                    title: 'Warm Weather Clothes',
+                    icon: '👗',
+                    color: '#e67e22',
+                    items: [
+                        { text: 'T-shirts/tops (4-5)', tags: ['hot', 'luggage'] },
+                        { text: 'Shorts (2-3)', tags: ['hot', 'luggage'] },
+                        { text: 'Light dresses (2)', note: 'Cover knees for temples', tags: ['luggage'] },
+                        { text: 'Light pants/skirts (2)', note: 'For temples', tags: ['luggage'] },
+                        { text: 'Swimwear', note: 'Da Nang beach', tags: ['hot', 'luggage'] },
+                        { text: 'Cover-up/sarong', note: 'Beach & temples', tags: ['luggage'] },
+                        { text: 'Sandals', tags: ['luggage'] },
+                        { text: 'Light sneakers', tags: ['luggage'] },
+                        { text: 'Sun hat', tags: ['hot', 'carry-on'] },
+                        { text: 'Sunglasses', tags: ['carry-on'] },
+                        { text: 'Light cardigan', note: 'For AC', tags: ['luggage'] }
+                    ]
+                },
+                {
+                    id: 'maria-toiletries',
+                    title: 'Toiletries',
+                    icon: '🧴',
+                    color: '#9b59b6',
+                    items: [
+                        { text: 'Toothbrush & toothpaste', tags: ['luggage'] },
+                        { text: 'Deodorant', tags: ['luggage'] },
+                        { text: 'Shampoo & conditioner', tags: ['luggage'] },
+                        { text: 'Body wash', tags: ['luggage'] },
+                        { text: 'Skincare products', tags: ['luggage'] },
+                        { text: 'Makeup essentials', tags: ['luggage'] },
+                        { text: 'Makeup remover', tags: ['luggage'] },
+                        { text: 'Hair ties & clips', tags: ['carry-on'] },
+                        { text: 'Hairbrush', tags: ['luggage'] },
+                        { text: 'Feminine hygiene products', tags: ['luggage'] },
+                        { text: 'Moisturizer', note: 'Seoul is dry', tags: ['luggage'] },
+                        { text: 'Lip balm', tags: ['carry-on'] }
+                    ]
+                },
+                {
+                    id: 'maria-health',
+                    title: 'Health & Medicine',
+                    icon: '💊',
+                    color: '#e91e63',
+                    items: [
+                        { text: 'Personal medications', note: 'With prescriptions', tags: ['essential', 'carry-on'] },
+                        { text: 'Pain relievers', tags: ['carry-on'] },
+                        { text: 'Stomach medicine', tags: ['carry-on'] },
+                        { text: 'Contact lenses + solution', note: 'If applicable', tags: ['carry-on'] }
+                    ]
+                }
+            ],
+            shared: [
+                {
+                    id: 'shared-documents',
+                    title: 'Documents & Money',
+                    icon: '📄',
+                    color: '#e74c3c',
+                    items: [
+                        { text: 'Passports (both)', note: 'Valid 6+ months', tags: ['essential', 'carry-on'] },
+                        { text: 'Flight tickets/confirmations', note: 'Print copies', tags: ['essential', 'carry-on'] },
+                        { text: 'Hotel reservations (all 5)', tags: ['essential', 'carry-on'] },
+                        { text: 'Travel insurance docs', note: 'Emergency numbers', tags: ['essential', 'carry-on'] },
+                        { text: 'Credit/Debit cards', note: 'Notify bank!', tags: ['essential', 'carry-on'] },
+                        { text: 'Cash - USD ($300)', note: 'Emergency backup', tags: ['essential', 'carry-on'] },
+                        { text: 'Passport photos (4 each)', note: 'For visa needs', tags: ['carry-on'] },
+                        { text: 'Document copies', note: 'Keep separate', tags: ['carry-on'] },
+                        { text: 'Pens (2)', note: 'Immigration forms', tags: ['essential', 'carry-on'] }
+                    ]
+                },
+                {
+                    id: 'shared-electronics',
+                    title: 'Electronics',
+                    icon: '📱',
+                    color: '#3498db',
+                    items: [
+                        { text: 'Phone chargers (2)', tags: ['essential', 'carry-on'] },
+                        { text: 'Power banks', note: 'Under 100Wh each', tags: ['essential', 'carry-on'] },
+                        { text: 'Universal travel adapter (2)', note: 'Type C/F & A/C/G', tags: ['essential', 'carry-on'] },
+                        { text: 'Camera + charger + SD cards', tags: ['carry-on'] },
+                        { text: 'Earphones/headphones', tags: ['carry-on'] },
+                        { text: 'USB cables (multiple)', tags: ['carry-on'] },
+                        { text: 'Tablet/e-reader', note: 'For flights', tags: ['carry-on'] }
+                    ]
+                },
+                {
+                    id: 'shared-toiletries',
+                    title: 'Shared Toiletries',
+                    icon: '🧴',
+                    color: '#1abc9c',
+                    items: [
+                        { text: 'Sunscreen SPF 50+', note: 'Essential for SE Asia!', tags: ['essential', 'luggage'] },
+                        { text: 'Insect repellent', note: 'For Cambodia & Vietnam', tags: ['essential', 'luggage'] },
+                        { text: 'Hand sanitizer (2)', tags: ['carry-on'] },
+                        { text: 'Wet wipes', tags: ['carry-on'] },
+                        { text: 'Tissues/toilet paper', note: 'Not always available', tags: ['carry-on'] },
+                        { text: 'First aid kit', note: 'Band-aids, antiseptic', tags: ['luggage'] }
+                    ]
+                },
+                {
+                    id: 'shared-health',
+                    title: 'Shared Medicine',
+                    icon: '💊',
+                    color: '#e91e63',
+                    items: [
+                        { text: 'Anti-diarrhea medicine', note: 'Important!', tags: ['essential', 'carry-on'] },
+                        { text: 'Antacids', note: 'For spicy food', tags: ['carry-on'] },
+                        { text: 'Motion sickness pills', note: 'For boats/buses', tags: ['carry-on'] },
+                        { text: 'Antihistamines', tags: ['carry-on'] },
+                        { text: 'Cold/flu medicine', tags: ['carry-on'] },
+                        { text: 'Rehydration salts', tags: ['carry-on'] },
+                        { text: 'Eye drops', note: 'Flights are drying', tags: ['carry-on'] }
+                    ]
+                },
+                {
+                    id: 'shared-travel',
+                    title: 'Travel Comfort',
+                    icon: '✈️',
+                    color: '#00bcd4',
+                    items: [
+                        { text: 'Neck pillows (2)', note: 'Long flights', tags: ['carry-on'] },
+                        { text: 'Eye masks (2)', tags: ['carry-on'] },
+                        { text: 'Earplugs', tags: ['carry-on'] },
+                        { text: 'Reusable water bottles', tags: ['carry-on'] },
+                        { text: 'Snacks for flights', tags: ['carry-on'] },
+                        { text: 'Compact umbrella', note: 'Da Nang & Hanoi rain', tags: ['carry-on'] },
+                        { text: 'Light rain jacket', note: 'Packable', tags: ['luggage'] }
+                    ]
+                },
+                {
+                    id: 'shared-bags',
+                    title: 'Bags & Organization',
+                    icon: '🎒',
+                    color: '#607d8b',
+                    items: [
+                        { text: 'Carry-on bags (2)', tags: ['essential'] },
+                        { text: 'Main luggage', note: 'Leave 30-40% empty!', tags: ['essential'] },
+                        { text: 'Day backpack (packable)', note: 'For excursions', tags: ['luggage'] },
+                        { text: 'Packing cubes', tags: ['luggage'] },
+                        { text: 'Laundry bags', tags: ['luggage'] },
+                        { text: 'Ziplock bags (various)', tags: ['luggage'] },
+                        { text: 'TSA locks', tags: ['luggage'] },
+                        { text: 'Collapsible shopping bags', note: 'For markets', tags: ['carry-on'] }
+                    ]
+                },
+                {
+                    id: 'shared-temple',
+                    title: 'Temple Visit Essentials',
+                    icon: '🛕',
+                    color: '#ff5722',
+                    items: [
+                        { text: 'Clothes covering shoulders', note: 'Both of you', tags: ['essential', 'luggage'] },
+                        { text: 'Clothes covering knees', note: 'Both of you', tags: ['essential', 'luggage'] },
+                        { text: 'Slip-on shoes', note: 'Easy to remove', tags: ['luggage'] },
+                        { text: 'Small flashlight', note: 'For Angkor temples', tags: ['carry-on'] }
+                    ]
+                }
+            ]
+        };
+
+        let currentTab = 'mehmet';
+        let state = {};
+        let roomCode = null;
+        let syncInterval = null;
+        const STORAGE_KEY = 'packingChecklist_IzmirAsia2025_v2';
+        const SYNC_INTERVAL = 5000; // 5 seconds
+
+        // Initialize
+        function init() {
+            loadLocalState();
+            renderChecklist();
+            updateAllCounts();
+
+            // Check for saved room code
+            const savedRoom = localStorage.getItem(STORAGE_KEY + '_room');
+            if (savedRoom) {
+                document.getElementById('roomCode').value = savedRoom;
+                connectRoom();
             }
-        ];
-
-        const STORAGE_KEY = 'packingChecklist_IzmirAsiaTrip2025';
-
-        function loadState() {
-            const saved = localStorage.getItem(STORAGE_KEY);
-            return saved ? JSON.parse(saved) : {};
         }
 
-        function saveState(state) {
+        function loadLocalState() {
+            const saved = localStorage.getItem(STORAGE_KEY);
+            state = saved ? JSON.parse(saved) : {};
+        }
+
+        function saveLocalState() {
             localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
         }
 
+        // Sync functions using JSONbin.io (free JSON storage)
+        async function connectRoom() {
+            const code = document.getElementById('roomCode').value.trim().toLowerCase();
+            if (!code) {
+                alert('Please enter a room code');
+                return;
+            }
+
+            roomCode = code;
+            localStorage.setItem(STORAGE_KEY + '_room', code);
+
+            // Try to fetch existing data
+            await syncFromRemote();
+
+            // Start sync interval
+            if (syncInterval) clearInterval(syncInterval);
+            syncInterval = setInterval(syncFromRemote, SYNC_INTERVAL);
+
+            updateSyncStatus(true);
+        }
+
+        function generateRoom() {
+            const randomCode = 'izmir' + Math.random().toString(36).substring(2, 8);
+            document.getElementById('roomCode').value = randomCode;
+            connectRoom();
+        }
+
+        async function syncFromRemote() {
+            if (!roomCode) return;
+
+            try {
+                // Using a simple localStorage-based "sync" simulation
+                // In production, replace with actual API calls to JSONbin.io or Firebase
+                const remoteKey = 'SYNC_' + roomCode;
+                const remoteData = localStorage.getItem(remoteKey);
+
+                if (remoteData) {
+                    const remote = JSON.parse(remoteData);
+                    // Merge: take the most recent check for each item
+                    for (const key in remote) {
+                        if (!state[key] || remote[key].timestamp > (state[key].timestamp || 0)) {
+                            state[key] = remote[key];
+                        }
+                    }
+                    saveLocalState();
+                    renderChecklist();
+                    updateAllCounts();
+                }
+
+                document.getElementById('lastSync').textContent = 'Last sync: ' + new Date().toLocaleTimeString();
+            } catch (e) {
+                console.error('Sync error:', e);
+            }
+        }
+
+        async function syncToRemote() {
+            if (!roomCode) return;
+
+            try {
+                const remoteKey = 'SYNC_' + roomCode;
+                // Merge with existing remote data
+                const remoteData = localStorage.getItem(remoteKey);
+                let remote = remoteData ? JSON.parse(remoteData) : {};
+
+                for (const key in state) {
+                    if (!remote[key] || state[key].timestamp > (remote[key].timestamp || 0)) {
+                        remote[key] = state[key];
+                    }
+                }
+
+                localStorage.setItem(remoteKey, JSON.stringify(remote));
+            } catch (e) {
+                console.error('Sync error:', e);
+            }
+        }
+
+        function updateSyncStatus(connected) {
+            const dot = document.getElementById('syncDot');
+            const status = document.getElementById('syncStatus');
+
+            if (connected) {
+                dot.classList.add('connected');
+                status.textContent = 'Connected to room: ' + roomCode;
+            } else {
+                dot.classList.remove('connected');
+                status.textContent = 'Local mode - Enter room code to sync';
+            }
+        }
+
+        // Tab switching
+        function switchTab(tab) {
+            currentTab = tab;
+
+            document.querySelectorAll('.person-tab').forEach(t => t.classList.remove('active'));
+            document.querySelector(`.person-tab.${tab}`).classList.add('active');
+
+            renderChecklist();
+            updateProgress();
+        }
+
+        // Render checklist for current tab
         function renderChecklist() {
             const grid = document.getElementById('checklistGrid');
-            const state = loadState();
+            const categories = allCategories[currentTab];
 
             grid.innerHTML = categories.map(category => {
-                const categoryState = state[category.id] || {};
-                const checkedCount = category.items.filter((_, i) => categoryState[i]).length;
-                const isCollapsed = categoryState.collapsed || false;
+                const isCollapsed = state[`${category.id}_collapsed`] || false;
+                const checkedCount = category.items.filter((_, i) =>
+                    state[`${category.id}_${i}`]?.checked
+                ).length;
 
                 return `
                     <div class="category" style="border-top: 4px solid ${category.color}">
                         <div class="category-header" onclick="toggleCategory('${category.id}')">
                             <div class="category-title">
-                                <span class="category-icon">${category.icon}</span>
+                                <span>${category.icon}</span>
                                 <span>${category.title}</span>
                             </div>
                             <div style="display: flex; align-items: center; gap: 10px;">
@@ -639,7 +905,8 @@
                         </div>
                         <div class="category-items ${isCollapsed ? 'collapsed' : ''}" id="items-${category.id}">
                             ${category.items.map((item, index) => {
-                                const isChecked = categoryState[index] || false;
+                                const itemKey = `${category.id}_${index}`;
+                                const isChecked = state[itemKey]?.checked || false;
                                 return `
                                     <div class="item ${isChecked ? 'checked' : ''}">
                                         <div class="checkbox ${isChecked ? 'checked' : ''}"
@@ -648,12 +915,9 @@
                                             <div class="item-text">${item.text}</div>
                                             ${item.note ? `<div class="item-note">${item.note}</div>` : ''}
                                             <div class="item-tags">
-                                                ${item.tags ? item.tags.map(tag =>
+                                                ${(item.tags || []).map(tag =>
                                                     `<span class="tag tag-${tag}">${tag}</span>`
-                                                ).join('') : ''}
-                                                <span class="tag ${item.luggage === 'carry-on' ? 'tag-carry-on' : 'tag-luggage'}">
-                                                    ${item.luggage === 'carry-on' ? '🎒 carry-on' : '🧳 luggage'}
-                                                </span>
+                                                ).join('')}
                                             </div>
                                         </div>
                                     </div>
@@ -668,31 +932,37 @@
         }
 
         function toggleItem(categoryId, itemIndex) {
-            const state = loadState();
-            if (!state[categoryId]) state[categoryId] = {};
-            state[categoryId][itemIndex] = !state[categoryId][itemIndex];
-            saveState(state);
+            const itemKey = `${categoryId}_${itemIndex}`;
+            const isChecked = state[itemKey]?.checked || false;
+
+            state[itemKey] = {
+                checked: !isChecked,
+                timestamp: Date.now()
+            };
+
+            saveLocalState();
+            syncToRemote();
             renderChecklist();
+            updateAllCounts();
         }
 
         function toggleCategory(categoryId) {
-            const state = loadState();
-            if (!state[categoryId]) state[categoryId] = {};
-            state[categoryId].collapsed = !state[categoryId].collapsed;
-            saveState(state);
+            const key = `${categoryId}_collapsed`;
+            state[key] = !state[key];
+            saveLocalState();
             renderChecklist();
         }
 
         function updateProgress() {
-            const state = loadState();
+            const categories = allCategories[currentTab];
             let total = 0;
             let checked = 0;
 
             categories.forEach(category => {
                 total += category.items.length;
-                const categoryState = state[category.id] || {};
                 category.items.forEach((_, index) => {
-                    if (categoryState[index]) checked++;
+                    const itemKey = `${category.id}_${index}`;
+                    if (state[itemKey]?.checked) checked++;
                 });
             });
 
@@ -701,39 +971,66 @@
             document.getElementById('progressFill').style.width = percentage + '%';
             document.getElementById('progressFill').textContent = percentage + '%';
             document.getElementById('checkedCount').textContent = checked;
-            document.getElementById('totalCount').textContent = total;
             document.getElementById('remainingCount').textContent = total - checked;
         }
 
-        function resetAll() {
-            if (confirm('Are you sure you want to reset all items? This cannot be undone.')) {
-                localStorage.removeItem(STORAGE_KEY);
-                renderChecklist();
-            }
+        function updateAllCounts() {
+            ['mehmet', 'maria', 'shared'].forEach(tab => {
+                const categories = allCategories[tab];
+                let total = 0;
+                let checked = 0;
+
+                categories.forEach(category => {
+                    total += category.items.length;
+                    category.items.forEach((_, index) => {
+                        const itemKey = `${category.id}_${index}`;
+                        if (state[itemKey]?.checked) checked++;
+                    });
+                });
+
+                document.getElementById(`${tab}Count`).textContent = `${checked}/${total}`;
+            });
+
+            updateProgress();
         }
 
         function expandAll() {
-            const state = loadState();
+            const categories = allCategories[currentTab];
             categories.forEach(category => {
-                if (!state[category.id]) state[category.id] = {};
-                state[category.id].collapsed = false;
+                state[`${category.id}_collapsed`] = false;
             });
-            saveState(state);
+            saveLocalState();
             renderChecklist();
         }
 
         function collapseAll() {
-            const state = loadState();
+            const categories = allCategories[currentTab];
             categories.forEach(category => {
-                if (!state[category.id]) state[category.id] = {};
-                state[category.id].collapsed = true;
+                state[`${category.id}_collapsed`] = true;
             });
-            saveState(state);
+            saveLocalState();
             renderChecklist();
         }
 
-        // Initialize
-        renderChecklist();
+        function resetCurrent() {
+            if (!confirm(`Reset all items in ${currentTab}'s list?`)) return;
+
+            const categories = allCategories[currentTab];
+            categories.forEach(category => {
+                category.items.forEach((_, index) => {
+                    const itemKey = `${category.id}_${index}`;
+                    state[itemKey] = { checked: false, timestamp: Date.now() };
+                });
+            });
+
+            saveLocalState();
+            syncToRemote();
+            renderChecklist();
+            updateAllCounts();
+        }
+
+        // Initialize on load
+        init();
     </script>
 </body>
 </html>
